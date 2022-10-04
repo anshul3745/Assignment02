@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.RegularExpressions;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,7 +26,7 @@ namespace Assignment02
             Console.WriteLine();
             Console.WriteLine("Please select any option to perform Operation : ");
 
-            while (option != 8)
+            while (option != 7)
             {
                 option = Convert.ToInt32(Console.ReadLine());
                 switch (option)
@@ -36,6 +37,11 @@ namespace Assignment02
                     case 2:
                         Console.WriteLine("Please enter rectangle length to change:");
                         int newLength = Convert.ToInt32(Console.ReadLine());
+                        while (newLength <= 0)
+                        {
+                            Console.WriteLine("Please enter a valid number greater than 0");
+                            newLength = Convert.ToInt32(Console.ReadLine());
+                        }
                         rectangle.SetNewLength(newLength);
                         break;
                     case 3:
@@ -44,6 +50,11 @@ namespace Assignment02
                     case 4:
                         Console.WriteLine("Please enter rectangle width to change:");
                         int newWidth = Convert.ToInt32(Console.ReadLine());
+                        while (newWidth <= 0)
+                        {
+                            Console.WriteLine("Please enter a valid number greater than 0");
+                            newWidth = Convert.ToInt32(Console.ReadLine());
+                        }
                         rectangle.SetNewWidth(newWidth);
                         break;
                     case 5:
